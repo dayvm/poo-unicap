@@ -1,7 +1,7 @@
 package br.com.unicap.poo;
-import java.util.ArrayList;
+import java.util.*;
 
-public class Animal {
+public abstract class Animal {
     protected long id;
     protected String name;
     protected int age;
@@ -9,7 +9,7 @@ public class Animal {
     protected ArrayList<String> abilities;
     
     
-    public Animal (long id, String name, int age, double weight, ArrayList<String> abilities){]
+    public Animal (long id, String name, int age, double weight, ArrayList<String> abilities){
         this.id = id;
         this.name = name;
         this.age = age;
@@ -17,21 +17,13 @@ public class Animal {
         this.abilities = abilities;
     }
 
-    public void exibirDetalhes() {
-        System.out.println("marca: " + this.marca);
-        System.out.println("modelo: " + this.modelo);
-        System.out.println("conexao: " + this.conexao);
-    }
+    public abstract String sound ();
 
-    public String getMarca(){
-        return this.marca;
-    }
-
-    public String getModelo(){
-        return this.modelo;
-    }
-
-    public String getConexao(){
-        return this.conexao;
+    public String performAbility (String ability) {
+        if (abilities.contains(ability)){
+            return (name + " can " + ability);
+        } else {
+            return (name + " can't " + ability);
+        }
     }
 }
