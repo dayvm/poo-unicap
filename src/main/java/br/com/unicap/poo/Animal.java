@@ -26,4 +26,8 @@ public abstract class Animal {
             return (name + " can't " + ability);
         }
     }
+
+    public void listAnimal () {
+        System.out.println ("id: " + this.id + ", nome: " + this.name);
+    }
 }

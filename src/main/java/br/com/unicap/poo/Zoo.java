@@ -17,9 +17,16 @@ public class Zoo {
         return this.animals;
     }
 
+    public void printAnimals(){
+        Iterator<Animal> iterator = animals.iterator();
+        while (iterator.hasNext()) {
+                  Animal animal = iterator.next();
+                  animal.listAnimal();
+                }
+    }
+
     public boolean removeAnimals (long id){
         Iterator<Animal> iterator = animals.iterator();
-
         while (iterator.hasNext()){
             Animal animal = iterator.next();
             if (animal.id == id){
@@ -29,5 +36,16 @@ public class Zoo {
             }
         }
         return false;
+    }
+
+    public Animal returnAnimal (long id){
+        Iterator<Animal> iterator = animals.iterator();
+        while (iterator.hasNext()){
+            Animal animal = iterator.next();
+            if (animal.id == id){
+                return animal;
+            }
+        }
+        throw new NoSuchElementException("Animal com ID " + id + " não encontrado.");
     }
 }

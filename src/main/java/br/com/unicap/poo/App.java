@@ -22,6 +22,7 @@ public final class App
 
           switch (escolhaMenu) {
             case 1:
+              try{
                 System.out.println("Qual animal você quer adicionar?");
                 System.out.println("1 - Cat");
                 System.out.println("2 - Dog");
@@ -47,8 +48,37 @@ public final class App
 
                 zoo.addAnimal(novoAnimal);
                 System.out.println ("Animal adicionado");
-
-                
+                break;
+              }  catch (Exception e) {
+                  System.out.println("Erro: " + e);
+                }
+            case 2:
+                try {
+                  zoo.printAnimals();
+                  break;
+                } catch (Exception e) {
+                  System.out.println("Erro: " + e);
+                }
+            case 3:
+                try {
+                  System.out.println("Qual animal você quer remover? Insira o id correspondente");
+                  zoo.printAnimals();
+                  Long idAnimal = sc.nextLong();
+                  zoo.removeAnimals(idAnimal);
+                } catch (Exception e) {
+                  System.out.println("Erro: " + e);
+                }
+                break;
+            case 4:
+                try {
+                  System.out.println("Qual animal você quer que faça o som? Insira o id correspondente");
+                  zoo.printAnimals();
+                  Long idAnimal = sc.nextLong();
+                  Animal animal = zoo.returnAnimal(idAnimal);
+                  System.out.println(animal.sound());
+                } catch (Exception e) {
+                  System.out.println("Erro: " + e);
+                }
                 
                 
           }
