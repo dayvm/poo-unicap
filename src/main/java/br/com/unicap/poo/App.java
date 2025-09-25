@@ -79,7 +79,22 @@ public final class App
                 } catch (Exception e) {
                   System.out.println("Erro: " + e);
                 }
-                
+                break;
+            case 5:
+                try {
+                  System.out.println("Qual animal você quer consultar habilidades? Insira o id correspondente");
+                  zoo.printAnimals();
+                  Long idAnimal = sc.nextLong();
+                  Animal animal = zoo.returnAnimal(idAnimal);
+                  System.out.println("Qual habilidade você quer saber se o animal possui?");
+                  String habilidade = sc.next();
+                  System.out.println(animal.performAbility((habilidade)));
+                } catch (Exception e) {
+                  System.out.println("Erro: " + e);
+                }
+                break;
+            case 6:
+                System.out.println("Programa encerrado");
                 
           }
       } while (escolhaMenu != 6);
