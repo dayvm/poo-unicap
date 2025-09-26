@@ -1,11 +1,11 @@
 package br.com.unicap.poo;
 
-import java.utils.*;
+import java.util.*;
 
 public class Pessoa {
 private int id;
 private String nome;
-private ArrayList<Pet> pets;
+private List<Pet> pets;
 
 public Pessoa (String nome) {
     this.id = 1;

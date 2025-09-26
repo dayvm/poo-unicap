@@ -17,6 +17,6 @@ public Pet(String nome, Pessoa dono) {
 public abstract void emitirSom ();
 
 @Override
-public abstract void obedecerComandos();
+public abstract void obedecerComandos(String comando);
 
 }
