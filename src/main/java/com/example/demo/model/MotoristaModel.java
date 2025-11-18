@@ -7,10 +7,6 @@ import lombok.Setter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
@@ -20,25 +16,21 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Table;
 
 
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property="id")
 @Entity
-@Table(name="tb_users")
+@Table(name="tb_motorista")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserModel {
+public class MotoristaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String username;
+    private String nome;
 
-    @JsonIgnore
-    private String password;
-
-    @OneToMany(mappedBy="usuario")
+    @OneToMany(mappedBy="motorista")
     private List<ViagemModel> viagens;
 
-    @OneToMany(mappedBy="usuariosConectados")
-    private List<MotoristaModel> motoristasConectados;
+    @OneToMany(mappedBy="motoristasConectados")
+    private List<UserModel> usuariosConectados;
 }
